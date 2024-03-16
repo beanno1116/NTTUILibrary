@@ -1,0 +1,44 @@
+.popover {
+  position: relative;
+}
+
+
+
+
+
+
+.popover_modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.3);
+  /* background-color: aquamarine; */
+  cursor: pointer;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  z-index: 1;
+  /* transform: scale(0); */
+  transition: transform .3s ease-in-out;
+}
+.popover_modal.showing {
+  display: block;
+  /* transform: scale(1); */
+}
+
+
+.modal_popover {
+  position: absolute;    
+  left: 0;  
+  /* min-height: 150px;   */
+  padding: .65rem;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #08a8f7;
+  
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  z-index: 2;  
+}
