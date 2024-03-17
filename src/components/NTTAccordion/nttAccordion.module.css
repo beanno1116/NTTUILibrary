@@ -1,0 +1,55 @@
+.accordion {
+  --backgroundColor: #121212;
+  --fontColor: #effeff;
+
+  background: var(--backgroundColor);
+  color: var(--fontColor);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+}
+.content[aria-hidden="false"] {
+  grid-template-rows: 1fr;
+}
+.content > div {
+  overflow: hidden;
+}
+
+
+.panel {
+  padding: 1rem;
+  border: 1px solid;
+}
+
+.accordion h2 {
+  position: relative;
+}
+
+.button {
+  position: relative;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.header_icon {
+  position: absolute;
+  right: .25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header_icon svg {
+  transform: rotate(0deg);
+  transition: transform 500ms;
+}
+
+.button[aria-expanded="true"] + .header_icon svg {
+  transform: rotate(90deg);
+}
+

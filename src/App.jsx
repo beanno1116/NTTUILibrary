@@ -1,11 +1,17 @@
 import styles from './app.module.css';
+import NTTAccordion from './components/NTTAccordion/NTTAccordion';
+import NTTButton from './components/NTTButton/NTTButton';
 import NTTDatePicker from './components/NTTDatePicker/NTTDatePicker'
 import NTTPopover,{positions,usePopover} from './components/NTTPopover/NTTPopover';
 
 function App() {
-  const {isShowing,close,open,position} = usePopover();
+  const {isShowing,close,open} = usePopover();
 
-  const onClickHandler = (e) => {
+  const nttButton_OnClickHandler = (e) => {
+    alert("NTTButton clicked")
+  }
+
+  const nttPopoverButton_OnClickHandler = (e) => {
     
   }
 
@@ -17,9 +23,18 @@ function App() {
       </section>
 
       <section className={styles.component_row}>
-        <NTTPopover close={close} open={open} show={isShowing} config={{position:positions.RIGHT_CENTER}}>
-          <button onClick={(e) => onClickHandler(e)}>Click Me!</button>
+        <NTTPopover close={close} open={open} show={isShowing} config={{position:positions.BOTTOM_CENTER}}>
+          <button onClick={(e) => nttPopoverButton_OnClickHandler(e)}>Click Me!</button>
         </NTTPopover>        
+      </section>
+
+
+      <section className={styles.component_row}>
+        <NTTButton onClick={nttButton_OnClickHandler}/>
+      </section>
+
+      <section className={styles.component_row}>
+        <NTTAccordion />
       </section>
 
       
