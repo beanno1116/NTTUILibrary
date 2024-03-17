@@ -1,0 +1,86 @@
+
+
+.button {
+  --backgroundColor: #01AFDF;
+  --borderColor: #486581;
+  --borderRadius: .25rem; 
+
+  /* Button focus vars */
+  --onFocusBorderColor: #102A43;
+  --onFocusbackgroundColor: #102A43;
+
+  /* Button font vars */
+  --fontSize: 1.25rem;
+  --fontFamily: 'Secular One', sans-serif;
+  --color: snow;
+
+  all: unset;
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: .3em .8em;
+  border-radius: var(--borderRadius);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  line-height: 1.6;
+  letter-spacing: 1px;
+  cursor: pointer;  
+  overflow: hidden;
+  background-color: var(--backgroundColor);
+  color: var(--color);
+  transform: scale(1);
+  transition: transform 0.08s ease-in-out;
+}
+.button.sm {
+  font-size: calc(.75 * var(--fontSize));
+}
+.button.lg {
+  font-size: calc(1.75 * var(--fontSize));
+  border-radius: .5em;
+}
+.button:active {
+    transform: scale(.995);
+    box-shadow: 1px 1px 6px inset rgba(0, 0, 0, .25);
+}
+.button:active:enabled {
+    transform: scale(.995);
+    box-shadow: 1px 1px 6px inset rgba(0, 0, 0, 0.25);
+}
+.button:not(:enabled) {
+    transform: scale(1);
+    box-shadow: 0;
+    pointer-events: none;
+}
+.button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25%;
+    background-color: var(--backgroundColor);
+    opacity: .2;    
+    z-index: -1;
+    transform:  scaleX(0);
+    transform-origin: center;
+    transition: transform .2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.button:hover::after { 
+  transform: scaleX(1.5);
+  color: black;
+}
+.button:active::after { 
+    background-color: var(--backgroundColor);
+    box-shadow: 1px 1px 4px inset black;
+}
+
+
+.button.outline {
+    background-color: transparent;
+    border: 2px solid var(--backgroundColor);
+    color: black;
+}
